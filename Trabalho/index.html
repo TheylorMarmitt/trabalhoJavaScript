@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de tarefas JS</title>
+</head>
+<body>
+
+    <h1>Cadastro de tarefas</h1>
+
+    <div>
+
+        <form onsubmit="return salvar();">
+            <input type="hidden" id="id" >
+
+            <div>
+                <label>Titulo:</label>
+                <input type="text" id="titulo" placeholder="Digite o titulo">
+            </div>
+            <div>
+                <label>Prioridade:</label>
+                <select name="prioridade" id="prioridade">
+                        <option value="baixa">Baixa</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                </select>
+            </div>
+            <div>
+                <label for="finalizado">Finalizado</label>
+				<input type="radio" name="finalizado" value="sim">Sim
+				<input type="radio" name="finalizado" value="nao">Não
+            </div>
+            <div>
+            <div>
+                <label>Categoria:</label>
+                <input type="text" id="categoria" placeholder="Digite categoria">
+            </div>
+                <button type="submit">Salvar</button>
+            </div> 
+            
+        </form>    
+    </div>
+    <hr>
+
+    <div>
+        <table border="1">
+            <thead>
+                <th>Titulo</th>
+                <th>Prioridade</th>
+                <th>Finalizado</th>
+                <th>Categoria</th>
+                <th>Opções</th>
+            </thead>
+            <tbody id="corpo-tabela">
+                
+            </tbody>
+        </table>
+    </div>
+
+
+    <script type="text/javascript" src="script.js">        
+    </script>
+</body>
+</html>
