@@ -7,7 +7,7 @@ function salvar(){
     tarefa.prioridade = document.getElementById("prioridade").value;
     tarefa.finalizado = document.getElementById("finalizado").value;
     tarefa.categoria = document.getElementById("categoria").value;
-
+    
     let id = document.getElementById("id").value;
 
     if(id == undefined || id == ''){
@@ -31,17 +31,14 @@ function salvar(){
 
     return false;
 }
-//
-function renderiza(){
-    
-    const tbody = document.getElementById("corpo-tabela");
 
+function renderiza(){    
+    const tbody = document.getElementById("corpo-tabela");
     tbody.innerHTML = '';
 
     for(let i = 0; i <listaTarefas.length; i++){
 
         const tarefa = listaTarefas[i];
-
         let tr = document.createElement('tr');
         
         let tdTitulo = document.createElement('td');
@@ -52,9 +49,9 @@ function renderiza(){
         let tdOpcoes = document.createElement('td');
         let tdExcluir = document.createElement('td');
 
-        tdTitulo.innerHTML = pessoa.titulo;
-        tdPrioridade.innerHTML = pessoa.prioridade;
-        tdFinalizado.innerHTML = pessoa.finalizado;
+        tdTitulo.innerHTML = tarefa.titulo;
+        tdPrioridade.innerHTML = tarefa.prioridade;
+        tdFinalizado.innerHTML = tarefa.finalizado;
         tdCategoria.innerHTML = tarefa.categoria;
 
         tdOpcoes = document.createElement('button');
@@ -97,9 +94,9 @@ function excluir(id){
 }
 
 function editar(id){
-    let tarefa = findPessoaById(id);
+    let tarefa = findTarefaById(id);
 
-    if(pessoa){
+    if(tarefa){
         document.getElementById("titulo").value = tarefa.titulo;
         document.getElementById("prioridade").value = tarefa.prioridade;
         document.getElementById("finalizado").value = tarefa.finalizado;
@@ -110,7 +107,7 @@ function editar(id){
     }
 }
 
-function findPessoaById(id){
+function findTarefaById(id){
     let tarefas = listaTarefas.filter(function(value){
         return value.id == id;
     });
