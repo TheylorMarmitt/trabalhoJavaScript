@@ -133,25 +133,19 @@ function zerarInputs(){
 
 function gravaNoLocalStorage(){
 
-    //convertendo lista em string no formato JSON
     const listaEmJSON = JSON.stringify(listaTarefas);
 
-    // gravando no localStorage
     localStorage.setItem("lista", listaEmJSON);
 
 }
 
 function buscaDoLocalStorage(){
-    // busca do local storage
     const listaStorage = localStorage.getItem("lista");
 
-    //converte para lista e atribui
     listaTarefas = JSON.parse(listaStorage) || [];
 }
 
-// executa assim que a pagina terminar de carregar
 (function(){
-    // o que se deseja executar
     buscaDoLocalStorage();
     renderiza();
 })();
