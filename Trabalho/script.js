@@ -5,15 +5,15 @@ function salvar(){
 
     tarefa.titulo = document.getElementById("titulo").value;
     tarefa.prioridade = document.getElementById("prioridade").value;
-    tarefa.finalizado = document.getElementById("finalizado").value;
+    tarefa.finalizado = getRadioValor("finalizado");
     tarefa.categoria = document.getElementById("categoria").value;
-    
+
     let id = document.getElementById("id").value;
 
     if(id == undefined || id == ''){
         tarefa.id = new Date().getTime();
         listaTarefas.push(tarefa);
-    }else{ 
+    }else{
         let idNumber = parseInt(id);
         let tarefaExistente = findTarefaById(idNumber);
 
@@ -32,7 +32,7 @@ function salvar(){
     return false;
 }
 
-function renderiza(){    
+function renderiza(){
     const tbody = document.getElementById("corpo-tabela");
     tbody.innerHTML = '';
 
@@ -40,12 +40,12 @@ function renderiza(){
 
         const tarefa = listaTarefas[i];
         let tr = document.createElement('tr');
-        
+
         let tdTitulo = document.createElement('td');
         let tdPrioridade = document.createElement('td');
         let tdFinalizado = document.createElement('td');
         let tdCategoria = document.createElement('td');
-        
+
         let tdOpcoes = document.createElement('td');
         let tdExcluir = document.createElement('td');
 
@@ -59,7 +59,7 @@ function renderiza(){
         tdOpcoes.appendChild(lbl);
 
         tdExcluir = document.createElement('button');
-        let lblExcluir = document.createTextNode("excluir");    
+        let lblExcluir = document.createTextNode("excluir");
         tdExcluir.appendChild(lblExcluir);
 
 
@@ -99,7 +99,9 @@ function editar(id){
     if(tarefa){
         document.getElementById("titulo").value = tarefa.titulo;
         document.getElementById("prioridade").value = tarefa.prioridade;
-        document.getElementById("finalizado").value = tarefa.finalizado;
+        ////
+        setRadioValor(tarefa.finalizado);
+        ////
         document.getElementById("categoria").value = tarefa.categoria;
         document.getElementById("id").value = tarefa.id;
     }else{
@@ -145,4 +147,33 @@ function buscaDoLocalStorage(){
 (function(){
     buscaDoLocalStorage();
     renderiza();
-})();
+})();0
+
+
+ function getRadioValor(id){
+  var rads = document.getElementsByName(id);
+
+  for(var i = 0; i < rads.length; i++){
+   if(rads[i].checked){
+    return rads[i].value;
+   }
+
+  }
+
+  return null;
+ }
+
+
+// rever (não está funcionando)
+function setRadioValor(finalizado){
+    if(finalizado.value == "sim"){
+        document.getElementsByName("finalizado").checked = true;
+    }else{
+        document.getElementsByName("finalizado").checked = false;
+    }
+    if(finalizado.value == "nao"){
+        document.getElementsByName("finalizado").checked = true;
+    }else{
+        document.getElementsByName("finalizado").checked = false;
+    }
+}
