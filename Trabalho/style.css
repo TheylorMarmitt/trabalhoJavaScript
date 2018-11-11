@@ -1,0 +1,15 @@
+
+hr{
+    margin: 30px;
+}
+h1{
+    text-align: center;
+}
+.hrtitulo{
+    margin-left: 10%;
+    width: 80%;
+}
+.btnSalvar{
+    margin-top: 30px;
+    margin-left: 10%;
+}

@@ -5,9 +5,8 @@ function salvar(){
 
     tarefa.titulo = document.getElementById("titulo").value;
     tarefa.prioridade = document.getElementById("prioridade").value;
-    tarefa.finalizado = getRadioValor("finalizado");
+    tarefa.finalizado = getRadioValor();
     tarefa.categoria = document.getElementById("categoria").value;
-
     let id = document.getElementById("id").value;
 
     if(id == undefined || id == ''){
@@ -31,6 +30,14 @@ function salvar(){
 
     return false;
 }
+function getRadioValor(){ 
+        var radios = document.getElementsByName("finalizado");
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                return radios[i].value;
+            }
+        }
+    };
 
 function renderiza(){
     const tbody = document.getElementById("corpo-tabela");
@@ -99,6 +106,7 @@ function editar(id){
     if(tarefa){
         document.getElementById("titulo").value = tarefa.titulo;
         document.getElementById("prioridade").value = tarefa.prioridade;
+        
         ////
         setRadioValor(tarefa.finalizado);
         ////
@@ -149,7 +157,7 @@ function buscaDoLocalStorage(){
     renderiza();
 })();0
 
-
+/* 
  function getRadioValor(id){
   var rads = document.getElementsByName(id);
 
@@ -163,17 +171,18 @@ function buscaDoLocalStorage(){
   return null;
  }
 
+*/
 
 // rever (não está funcionando)
-function setRadioValor(finalizado){
-    if(finalizado.value == "sim"){
-        document.getElementsByName("finalizado").checked = true;
-    }else{
-        document.getElementsByName("finalizado").checked = false;
-    }
-    if(finalizado.value == "nao"){
-        document.getElementsByName("finalizado").checked = true;
-    }else{
-        document.getElementsByName("finalizado").checked = false;
-    }
+function setRadioValor(valor){
+    var radios = document.getElementsByName("finalizado");
+    if(valor == "sim"){
+     radios[0].checked = true;
+     radios[1].checked = false;
+}
+if(valor == "nao"){
+    radios[0].checked = false;
+    radios[1].checked = true;
+
+}
 }
