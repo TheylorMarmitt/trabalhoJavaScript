@@ -155,6 +155,11 @@ function buscaDoLocalStorage(){
 (function(){
     buscaDoLocalStorage();
     renderiza();
+    document.getElementById("formulario").addEventListener("submit", function(evt){
+        salvar();
+        evt.stopPropagation();
+        evt.preventDefault();
+    });
 })();0
 
 /* 
