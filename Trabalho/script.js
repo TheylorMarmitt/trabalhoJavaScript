@@ -10,7 +10,7 @@ function salvar(){
     let id = document.getElementById("id").value;
 
     if(id == undefined || id == ''){
-        tarefa.id = new Date().getTime();
+        tarefa.id = new Date().getTime(); 
         listaTarefas.push(tarefa);
     }else{
         let idNumber = parseInt(id);
@@ -158,6 +158,11 @@ function buscaDoLocalStorage(){
 (function(){
     buscaDoLocalStorage();
     renderiza();
+    document.getElementById("formulario").addEventListener("submit", function(evt){
+        salvar();
+        evt.stopPropagation();
+        evt.preventDefault();
+    });
 })();0
 
 function setRadioValor(valor){
