@@ -1,4 +1,7 @@
-var listaTarefas = [];
+
+
+(function(){
+    var listaTarefas = [];
 
 function salvar(){
     var tarefa = {};
@@ -155,15 +158,6 @@ function buscaDoLocalStorage(){
     listaTarefas = JSON.parse(listaStorage) || [];
 }
 
-(function(){
-    buscaDoLocalStorage();
-    renderiza();
-    document.getElementById("formulario").addEventListener("submit", function(evt){
-        salvar();
-        evt.stopPropagation();
-        evt.preventDefault();
-    });
-})();
 
 function setRadioValor(valor){
     var radios = document.getElementsByName("finalizado");
@@ -177,3 +171,11 @@ if(valor == "nao"){
 
 }
 }
+    buscaDoLocalStorage();
+    renderiza();
+    document.getElementById("formulario").addEventListener("submit", function(evt){
+        salvar();
+        evt.stopPropagation();
+        evt.preventDefault();
+    });
+})();
