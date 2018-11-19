@@ -21,6 +21,9 @@ function salvar(){
             tarefaExistente.prioridade = tarefa.prioridade;
             tarefaExistente.finalizado = tarefa.finalizado;
             tarefaExistente.categoria = tarefa.categoria;
+        
+        
+        
         }
     }
 
@@ -157,23 +160,6 @@ function buscaDoLocalStorage(){
     renderiza();
 })();0
 
-/* 
- function getRadioValor(id){
-  var rads = document.getElementsByName(id);
-
-  for(var i = 0; i < rads.length; i++){
-   if(rads[i].checked){
-    return rads[i].value;
-   }
-
-  }
-
-  return null;
- }
-
-*/
-
-// rever (não está funcionando)
 function setRadioValor(valor){
     var radios = document.getElementsByName("finalizado");
     if(valor == "sim"){

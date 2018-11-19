@@ -19,11 +19,11 @@
 
             <div>
                 <label>Titulo:</label>
-                <input type="text" id="titulo" placeholder="Digite o titulo">
+                <input type="text" id="titulo" placeholder="Digite o titulo" required>
             </div>
             <div>
                 <label>Prioridade:</label>
-                <select name="prioridade" id="prioridade">
+                <select name="prioridade" id="prioridade" required>
                         <option value="baixa">Baixa</option>
                         <option value="media">Media</option>
                         <option value="alta">Alta</option>
@@ -31,12 +31,12 @@
             </div>
             <div>
                 <label for="finalizado">Finalizado</label>
-                <input type="radio" name="finalizado" value="sim">Sim
-                <input type="radio" name="finalizado" value="nao">Não
+                <input type="radio" name="finalizado" value="sim" required>Sim
+                <input type="radio" name="finalizado" value="nao" required>Não
             </div>
             <div>
                 <label>Categoria:</label>
-                <input type="text" id="categoria" placeholder="Digite categoria">
+                <input type="text" id="categoria" placeholder="Digite categoria" required>
             </div>
             <div>
                 <button type="submit" class="btnSalvar">Salvar</button>
