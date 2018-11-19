@@ -163,7 +163,7 @@ function buscaDoLocalStorage(){
         evt.stopPropagation();
         evt.preventDefault();
     });
-})();0
+})();
 
 function setRadioValor(valor){
     var radios = document.getElementsByName("finalizado");
