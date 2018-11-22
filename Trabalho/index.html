@@ -19,11 +19,12 @@
 
             <div>
                 <label>Titulo:</label>
-                <input type="text" id="titulo" placeholder="Digite o titulo" required>
+                <input type="text" id="titulo" placeholder="Digite o titulo" required="required"
+                data-custom-message="Digite o título">
             </div>
             <div>
                 <label>Prioridade:</label>
-                <select name="prioridade" id="prioridade" required>
+                <select name="prioridade" id="prioridade">
                         <option value="baixa">Baixa</option>
                         <option value="media">Media</option>
                         <option value="alta">Alta</option>
@@ -31,12 +32,14 @@
             </div>
             <div>
                 <label for="finalizado">Finalizado</label>
-                <input type="radio" name="finalizado" value="sim" required>Sim
-                <input type="radio" name="finalizado" value="nao" required>Não
+                <input type="radio" name="finalizado" value="sim" required="required"
+                data-custom-message="Selecione">Sim
+                <input type="radio" name="finalizado" value="nao" required="required">Não
             </div>
             <div>
                 <label>Categoria:</label>
-                <input type="text" id="categoria" placeholder="Digite categoria" required>
+                <input type="text" id="categoria" placeholder="Digite categoria" required="required"
+                data-custom-message="Digite a categoria">
             </div>
             <div>
                 <button type="submit" class="btnSalvar">Salvar</button>
@@ -61,7 +64,7 @@
         </table>
     </div>
 
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <script type="text/javascript" src="script.js">
     </script>
 </body>
